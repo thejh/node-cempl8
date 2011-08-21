@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+require('coffee-script')
+var compile = require('../index')
+if (process.argv.length !== 4) {
+  console.error('syntax: cempl8 macros1,macros2,... file1,file2,...')
+  console.error('(files without the +, it will be added automatically)')
+  return
+}
+
+var templates = process.argv[2].split(',')
+var files = process.argv[3].split(',')
+compile(templates, files)

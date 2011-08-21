@@ -1,0 +1,18 @@
+{
+  "author": "Jann Horn <jannhorn@googlemail.com>",
+  "name": "cempl8",
+  "description": "JS macros, simple or complex",
+  "version": "0.1.0",
+  "homepage": "http://github.com/thejh/node-cempl8",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thejh/node-cempl8.git"
+  },
+  "dependencies": {
+    "coffee-script": "*"
+  },
+  "bin": {
+    "cempl8": "./bin/cempl8"
+  },
+  "devDependencies": {}
+}

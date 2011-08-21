@@ -95,4 +95,4 @@ doCompile = (macros, codeFiles) ->
         code = spliceStr code, i, closeI+2, macro args
     fs.writeFile fileName, code
 
-compile ['macros'], ['test.js']
+module.exports = compile
