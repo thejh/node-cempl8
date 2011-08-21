@@ -1,0 +1,5 @@
+var names = ["Max", "Alice", "Bob"]
+$$foreach{{names,,name,,console.log("Hello "+name)}}
+
+function lowerCase(str){return str.toLowerCase()}
+$$mapreduce{{names,, map lowerCase(e),, filter !!e,, each console.log(e)}}

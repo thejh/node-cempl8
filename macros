@@ -1,0 +1,23 @@
+simple foreach{array, ename, code} #{array}.forEach(function(#{ename}){#{code}})
+complex mapreduce
+  var result = args.shift()
+  args.forEach(function(arg) {
+    arg = arg.trim()
+    var spaceIndex1 = arg.indexOf(" ")
+    var newlineIndex1 = arg.indexOf("\n")
+    var space1 = Math.min(~spaceIndex1?spaceIndex1:1/0, ~newlineIndex1?newlineIndex1:1/0)
+    if (space1 < 0) throw new Error("invalid arg '"+arg+"'")
+    var type = arg.slice(0, space1)
+    var arg = (arg[space1]==="\n"?"\n":"")+arg.slice(space1+1)
+    if (type === "map")
+      result += ".map(function(e){return "+arg+"})"
+    else if (type === "filter")
+      result += ".filter(function(e){return "+arg+"})"
+    else if (type === "reduce")
+      result += ".reduce(function(e){return "+arg+"})"
+    else if (type === "each")
+      result += ".forEach(function(e){"+arg+"})"
+    else
+      throw new Error("unknown method")
+  })
+  return result
